@@ -8,6 +8,8 @@ This project was part of some internal tooling that I had built for a project an
 
 # Language Manager for Ruby on Rails
 
+A web-based language file editor for Ruby-On-Rails projects
+
 ## Running
 
 * Make sure rbenv is configured for this version of Ruby. 
