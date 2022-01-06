@@ -1,0 +1,455 @@
+@font-face {
+  font-family: "ProximaNova";
+  src: url('/public/stylesheets/fonts/../../../fonts/ProximaNova-Light.otf') format('opentype');
+}
+
+/* line 7, scss/style.scss */
+html, body {
+  background-color: white;
+  font-family: "ProximaNova", Helvetica;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+/* line 14, scss/style.scss */
+html a, body a {
+  color: #777;
+  text-decoration: none;
+}
+/* line 19, scss/style.scss */
+html a:visited, body a:visited {
+  color: #777;
+}
+/* line 23, scss/style.scss */
+html a:hover, body a:hover {
+  color: #000;
+}
+
+/* line 28, scss/style.scss */
+#toolbar_button a {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  z-index: 200;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(30%, #dddddd), color-stop(70%, #cccccc), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: -moz-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: -o-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  padding: 10px;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+
+/* line 39, scss/style.scss */
+#save_button_container a {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 60px;
+  z-index: 200;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(30%, #dddddd), color-stop(70%, #cccccc), color-stop(100%, #bbbbbb));
+  background-image: -webkit-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: -moz-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: -o-linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  background-image: linear-gradient(#ffffff, #dddddd 30%, #cccccc 70%, #bbbbbb);
+  padding: 10px;
+  -webkit-box-shadow: black 0px 1px 5px;
+  -moz-box-shadow: black 0px 1px 5px;
+  box-shadow: black 0px 1px 5px;
+}
+
+/* line 52, scss/style.scss */
+#container {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 59, scss/style.scss */
+#container #toolbar {
+  display: none;
+  float: left;
+  width: 100%;
+  background-color: #EEE;
+  height: 50px;
+  position: absolute;
+  z-index: 100;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 70, scss/style.scss */
+#container #middle_pane {
+  width: 23%;
+  float: left;
+  position: relative;
+  overflow: scroll;
+  height: 100%;
+}
+/* line 79, scss/style.scss */
+#container #left_pane {
+  float: left;
+  width: 33%;
+  position: relative;
+  overflow: scroll;
+  height: 100%;
+}
+/* line 88, scss/style.scss */
+#container #right_pane {
+  width: 43%;
+  float: right;
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+}
+
+/* line 99, scss/style.scss */
+.content {
+  padding-left: 10px;
+  padding-top: 50px;
+}
+
+/* line 104, scss/style.scss */
+#folder_list {
+  padding: 10px;
+}
+/* line 106, scss/style.scss */
+#folder_list li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+/* line 111, scss/style.scss */
+#folder_list ul {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+/* line 117, scss/style.scss */
+#folder_list .folder {
+  background: transparent url(../images/folder.png) top left no-repeat;
+  padding-left: 18px;
+}
+
+/* line 123, scss/style.scss */
+#phrase_list {
+  padding: 10px;
+}
+/* line 125, scss/style.scss */
+#phrase_list li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+/* line 130, scss/style.scss */
+#phrase_list .phrase {
+  background: transparent url(../images/note.png) center left no-repeat;
+  padding-left: 18px;
+}
+
+/* line 136, scss/style.scss */
+#phrase_name {
+  text-align: center;
+}
+
+/* line 141, scss/style.scss */
+#phrase_table tr {
+  border: 1px solid black;
+}
+/* line 144, scss/style.scss */
+#phrase_table tr td {
+  padding: 5px 0 5px 0;
+}
+
+/* line 150, scss/style.scss */
+.phrase_possible_missing {
+  color: orange;
+  font-weight: bold;
+}
+
+/* line 155, scss/style.scss */
+.phrase_missing {
+  color: red;
+  font-weight: bold;
+}
+
+/* line 160, scss/style.scss */
+#phrase_table tr:nth-of-type(even) {
+  background-color: #EEE;
+}
+
+/* line 164, scss/style.scss */
+#new_phrase_modal {
+  display: none;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+/* line 174, scss/style.scss */
+#new_phrase_modal .box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: white 0px 0px 5px;
+  -moz-box-shadow: white 0px 0px 5px;
+  box-shadow: white 0px 0px 5px;
+  background-color: white;
+  width: 400px;
+  padding: 10px;
+  margin: auto;
+  top: 33%;
+  position: relative;
+  text-align: center;
+}
+/* line 184, scss/style.scss */
+#new_phrase_modal .box textarea {
+  margin: auto;
+  position: relative;
+  width: 400px;
+}
+/* line 189, scss/style.scss */
+#new_phrase_modal .box .buttons {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 193, scss/style.scss */
+#new_phrase_modal .box .buttons a {
+  margin-top: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #aaaaaa));
+  background-image: -webkit-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -moz-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -o-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: linear-gradient(#eeeeee, #aaaaaa);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 0;
+  padding: 5px;
+  text-decoration: none;
+}
+/* line 202, scss/style.scss */
+#new_phrase_modal .box .buttons a:visited {
+  color: black;
+}
+/* line 206, scss/style.scss */
+#new_phrase_modal .box .buttons a:active {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -moz-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -o-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: linear-gradient(#aaaaaa, #eeeeee);
+}
+
+/* line 214, scss/style.scss */
+#edit_modal {
+  display: none;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+/* line 224, scss/style.scss */
+#edit_modal .box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: white 0px 0px 5px;
+  -moz-box-shadow: white 0px 0px 5px;
+  box-shadow: white 0px 0px 5px;
+  background-color: white;
+  width: 400px;
+  padding: 10px;
+  margin: auto;
+  top: 33%;
+  position: relative;
+  text-align: center;
+}
+/* line 234, scss/style.scss */
+#edit_modal .box textarea {
+  margin: auto;
+  position: relative;
+  width: 400px;
+}
+/* line 239, scss/style.scss */
+#edit_modal .box .buttons {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 243, scss/style.scss */
+#edit_modal .box .buttons a {
+  margin-top: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #aaaaaa));
+  background-image: -webkit-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -moz-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -o-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: linear-gradient(#eeeeee, #aaaaaa);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 0;
+  padding: 5px;
+  text-decoration: none;
+}
+/* line 252, scss/style.scss */
+#edit_modal .box .buttons a:visited {
+  color: black;
+}
+/* line 256, scss/style.scss */
+#edit_modal .box .buttons a:active {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -moz-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -o-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: linear-gradient(#aaaaaa, #eeeeee);
+}
+
+/* line 264, scss/style.scss */
+#new_folder_modal {
+  display: none;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+/* line 274, scss/style.scss */
+#new_folder_modal .box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: white 0px 0px 5px;
+  -moz-box-shadow: white 0px 0px 5px;
+  box-shadow: white 0px 0px 5px;
+  background-color: white;
+  width: 400px;
+  padding: 10px;
+  margin: auto;
+  top: 33%;
+  position: relative;
+  text-align: center;
+}
+/* line 284, scss/style.scss */
+#new_folder_modal .box textarea {
+  margin: auto;
+  position: relative;
+  width: 400px;
+}
+/* line 289, scss/style.scss */
+#new_folder_modal .box .buttons {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 293, scss/style.scss */
+#new_folder_modal .box .buttons a {
+  margin-top: 5px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #aaaaaa));
+  background-image: -webkit-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -moz-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: -o-linear-gradient(#eeeeee, #aaaaaa);
+  background-image: linear-gradient(#eeeeee, #aaaaaa);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 0;
+  padding: 5px;
+  text-decoration: none;
+}
+/* line 302, scss/style.scss */
+#new_folder_modal .box .buttons a:visited {
+  color: black;
+}
+/* line 306, scss/style.scss */
+#new_folder_modal .box .buttons a:active {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -moz-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: -o-linear-gradient(#aaaaaa, #eeeeee);
+  background-image: linear-gradient(#aaaaaa, #eeeeee);
+}
+
+/* line 318, scss/style.scss */
+.refresh {
+  padding-left: 20px;
+  background: url(../images/arrow_refresh.png) top left no-repeat;
+}
+
+/* line 323, scss/style.scss */
+.mass_edit {
+  padding-left: 20px;
+  background: url(../images/layers.png) top left no-repeat;
+}
+
+/* line 328, scss/style.scss */
+.me_editbox {
+  width: 360px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 333, scss/style.scss */
+.me_editbox:focus {
+  -webkit-box-shadow: black 0px 0px 5px;
+  -moz-box-shadow: black 0px 0px 5px;
+  box-shadow: black 0px 0px 5px;
+}
+
+/* line 337, scss/style.scss */
+.add {
+  padding-left: 20px;
+  background: url(../images/add.png) top left no-repeat;
+}
+
+/* line 346, scss/style.scss */
+.mo_for_add_folder .add_folder {
+  display: none;
+}
+/* line 348, scss/style.scss */
+.mo_for_add_folder .add_folder img {
+  vertical-align: middle;
+}
+
+/* line 353, scss/style.scss */
+.mo_for_add_folder:hover > .add_folder {
+  display: inline;
+}

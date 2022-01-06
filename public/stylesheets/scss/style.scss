@@ -1,0 +1,355 @@
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/utilities";
+
+@include font-face("ProximaNova", font-files("../../../fonts/ProximaNova-Light.otf"));
+
+html, body {
+	background-color: white;
+	font-family: "ProximaNova", Helvetica;
+	height: 100%;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	a {
+		color: #777;
+		text-decoration: none;
+	}
+
+	a:visited {
+		color: #777;
+	}
+
+	a:hover {
+		color: #000;
+	}
+}
+
+#toolbar_button a{
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	z-index: 200;
+	@include border-radius(5px);
+	@include background-image(linear-gradient(white, #dddddd 30%, #cccccc 70%, #bbbbbb)); 
+	padding: 10px;
+	@include single-box-shadow
+}
+
+#save_button_container a{
+	display: none;
+	position: absolute;
+	top: 6px;
+	right: 60px;
+	z-index: 200;
+	@include border-radius(3px);
+	@include background-image(linear-gradient(white, #dddddd 30%, #cccccc 70%, #bbbbbb)); 
+	padding: 10px;
+	@include box-shadow(black 0px 1px 5px);
+}
+
+
+#container {
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	// border: 1px solid blue;
+	position: relative;
+
+	#toolbar {
+		display: none;
+		float: left;
+		width: 100%;
+		background-color: #EEE;
+		height: 50px;
+		position: absolute;
+		z-index: 100;
+		@include single-box-shadow;
+	}
+
+	#middle_pane {
+		width: 23%;
+		// border: 1px solid red;
+		float: left;
+		position: relative;
+		overflow: scroll;
+		height: 100%;
+	}
+
+	#left_pane {
+		float: left;
+		width: 33%;
+		// border: 1px solid green;
+		position: relative;
+		overflow: scroll;
+		height: 100%;
+	}
+
+	#right_pane {
+		width: 43%;
+		// border: 1px solid red;
+		float: right;
+		position: relative;
+		height: 100%;
+		overflow: scroll;
+	}
+}
+
+
+.content {
+	padding-left: 10px;
+	padding-top: 50px;
+}
+
+#folder_list {
+	padding: 10px;
+	li {
+		list-style: none;
+		margin-bottom: 5px;
+	}
+
+	ul {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 20px;
+	}
+
+	.folder {
+		background: transparent url(../images/folder.png) top left no-repeat;
+		padding-left: 18px;
+	}
+}
+
+#phrase_list {
+	padding: 10px;
+	li {
+		list-style: none;
+		margin-bottom: 5px;
+	}
+
+	.phrase {
+		background: transparent url(../images/note.png) center left no-repeat;
+		padding-left: 18px;
+	}
+}
+
+#phrase_name {
+	text-align: center;
+}
+
+#phrase_table {
+	tr {
+		border: 1px solid black;
+
+		td {
+			padding: 5px 0 5px 0;
+		}
+	}
+}
+
+.phrase_possible_missing {
+	color: orange;
+	font-weight: bold;
+}
+
+.phrase_missing {
+	color: red;
+	font-weight: bold;
+}
+
+#phrase_table tr:nth-of-type(even) {
+	background-color:#EEE;
+}
+
+#new_phrase_modal {
+	display: none;
+	z-index: 1000;
+	background-color: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	.box {
+		@include border-radius(10px);
+		@include box-shadow(white 0px 0px 5px);
+		background-color: white;
+		width: 400px;
+		padding: 10px;
+		margin: auto;
+		top: 33%;
+		position: relative;
+		text-align: center;
+		textarea {
+			margin: auto;
+			position: relative;
+			width: 400px;
+		}
+		.buttons {
+			text-align: right;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			a {
+				margin-top: 5px;
+				@include background-image(linear-gradient(#EEEEEE, #AAAAAA)); 
+				@include border-radius(5px);
+			  @include text-shadow(rgba(white, 0.5) 1px 1px 0);
+				padding: 5px;	
+				text-decoration: none;
+			}
+
+			a:visited {
+					color: black;
+			}
+
+			a:active {
+				@include background-image(linear-gradient(#AAAAAA, #EEEEEE)); 
+			}
+
+		}
+	}
+}
+
+#edit_modal {
+	display: none;
+	z-index: 1000;
+	background-color: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	.box {
+		@include border-radius(10px);
+		@include box-shadow(white 0px 0px 5px);
+		background-color: white;
+		width: 400px;
+		padding: 10px;
+		margin: auto;
+		top: 33%;
+		position: relative;
+		text-align: center;
+		textarea {
+			margin: auto;
+			position: relative;
+			width: 400px;
+		}
+		.buttons {
+			text-align: right;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			a {
+				margin-top: 5px;
+				@include background-image(linear-gradient(#EEEEEE, #AAAAAA)); 
+				@include border-radius(5px);
+			  @include text-shadow(rgba(white, 0.5) 1px 1px 0);
+				padding: 5px;	
+				text-decoration: none;
+			}
+
+			a:visited {
+					color: black;
+			}
+
+			a:active {
+				@include background-image(linear-gradient(#AAAAAA, #EEEEEE)); 
+			}
+
+		}
+	}
+}
+
+#new_folder_modal {
+	display: none;
+	z-index: 1000;
+	background-color: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	position: absolute;
+	.box {
+		@include border-radius(10px);
+		@include box-shadow(white 0px 0px 5px);
+		background-color: white;
+		width: 400px;
+		padding: 10px;
+		margin: auto;
+		top: 33%;
+		position: relative;
+		text-align: center;
+		textarea {
+			margin: auto;
+			position: relative;
+			width: 400px;
+		}
+		.buttons {
+			text-align: right;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			a {
+				margin-top: 5px;
+				@include background-image(linear-gradient(#EEEEEE, #AAAAAA)); 
+				@include border-radius(5px);
+			  @include text-shadow(rgba(white, 0.5) 1px 1px 0);
+				padding: 5px;	
+				text-decoration: none;
+			}
+
+			a:visited {
+					color: black;
+			}
+
+			a:active {
+				@include background-image(linear-gradient(#AAAAAA, #EEEEEE)); 
+			}
+
+		}
+	}
+}
+
+.button {
+	
+}
+
+.refresh {
+	padding-left: 20px;
+	background: url(../images/arrow_refresh.png) top left no-repeat;
+}
+
+.mass_edit {
+	padding-left: 20px;
+	background: url(../images/layers.png) top left no-repeat;
+}
+
+.me_editbox {
+	width: 360px;
+	@include border-radius(5px);
+}
+
+.me_editbox:focus {
+	@include box-shadow(black 0px 0px 5px);
+}
+
+.add {
+	padding-left: 20px;
+	background: url(../images/add.png) top left no-repeat;
+}
+
+.additional_folders {
+	
+}
+
+.mo_for_add_folder .add_folder {
+	display: none;
+	img {
+		vertical-align: middle;
+	}
+}
+
+.mo_for_add_folder:hover > .add_folder {
+	display: inline;
+}

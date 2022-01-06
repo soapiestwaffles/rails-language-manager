@@ -1,0 +1,13 @@
+div.additional_folders
+	ul
+		- i = 0
+		- @keys.each do |key|
+			li.folder
+				.mo_for_add_folder
+					-if @language_data.has_subkeys_for_language('en', "#{@path}.#{key}")
+						a.folder_link data-node="#{@path}.#{key}" data-index="#{i}" href="#" [+]
+						| &nbsp;
+					a.folder_show data-node="#{@path}.#{key}" href="#" = key
+					| &nbsp;
+					a.add_folder data-node="#{key}" href="#"
+						img src="images/add.png"

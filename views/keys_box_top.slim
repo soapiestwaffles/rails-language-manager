@@ -1,0 +1,20 @@
+div
+	ul#folder_list
+		li.folder
+			.mo_for_add_folder 
+				a.folder_show data-node="[ROOT]" href="#" [ROOT]
+				| &nbsp;
+				a.add_folder data-node="[ROOT]" href="#"
+					img src="images/add.png"
+		ul
+			- i = 0
+			- @top_level_keys.each do |key|
+				li.folder id="node_#{i}"
+					.mo_for_add_folder
+						- if @language_data.has_subkeys_for_language('en', key)
+							a.folder_link data-node="#{key}" data-index="#{i}" href="#" [+]
+							| &nbsp;
+						a.folder_show data-node="#{key}" href="#" = key
+						| &nbsp;
+						a.add_folder data-node="#{key}" href="#"
+							img src="images/add.png"

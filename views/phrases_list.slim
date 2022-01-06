@@ -1,0 +1,16 @@
+div
+	h3= params[:node]
+	ul#phrase_list
+		- @phrases.each do |phrase|
+			li.phrase 
+				a.phrase_link href="#" data-phrase="#{@phrase_path}#{phrase}"
+					- case @language_data.has_missing_translations?("#{@phrase_path}#{phrase}")
+					- when :possible
+						span.phrase_possible_missing =phrase
+					- when :missing
+						span.phrase_missing =phrase
+					- else
+						span =phrase
+	.button_bar
+		a href="#" class="refresh" id="refresh_phrases_button" data-path="#{params[:node]}" 
+		a href="#" class="add"		 id="add_phrase_button" data-path="#{params[:node]}"

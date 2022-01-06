@@ -1,0 +1,60 @@
+doctype 5
+html
+	head
+		title gmts Language Manager
+		link rel="stylesheet" type="text/css" href="stylesheets/style.css"
+		script type="text/javascript" src="javascripts/jquery.min.js"
+		script type="text/javascript" src="javascripts/application.js"
+
+	body
+		#toolbar_button
+			a href="#" id="toggle_toolbar_button"
+				img src="images/wrench.png"
+
+		#save_button_container
+				a href="#" id="save_button"
+					img src="images/disk.png"
+
+		#container
+			#toolbar
+				div toolbar
+			#left_pane
+				.content 
+					img src="images/ajax-loader.gif"
+			#middle_pane
+				.content
+
+			#right_pane
+				.content
+					==slim :phrase_pane
+
+		/ Modal Windows
+		#edit_modal
+			.box
+				h4#phrase Phrase
+				h3#language data-language="" Language
+				textarea rows="5"
+				.buttons
+					a#cancel_phrase href="#" Cancel
+					| &nbsp;
+					a#submit_phrase href="#" Save
+
+		#new_phrase_modal
+			.box
+				h4#new_phrase_path Path
+				p Enter the id of the new phrase:
+				input#new_phrase_input.me_editbox name="new_phrase_input"
+				.buttons
+					a#cancel_new_phrase href="#" Cancel
+					| &nbsp;
+					a#submit_new_phrase href="#" Save
+
+		#new_folder_modal
+			.box
+				h4#new_folder_path Path
+				p Enter the id of the new folder:
+				input#new_phrase_input.me_editbox name="new_phrase_input"
+				.buttons
+					a#cancel_new_phrase href="#" Cancel
+					| &nbsp;
+					a#submit_new_phrase href="#" Save

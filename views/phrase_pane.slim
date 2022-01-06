@@ -1,0 +1,17 @@
+div style="padding:10px"
+	header
+		h2#phrase_name NO PHRASE SELECTED
+
+	table#phrase_table width="100%"
+		tr
+			th width="50" Lang
+			th Phrase
+		- @languages.each do |language|
+			tr
+				td style="text-align: center" 
+					a.language_link href="#" data-language="#{language}" data-language-name="#{name_for_lang(language)}" = name_for_lang(language)
+				td class="phrase" data-language="#{language}" id="phrase_placeholder_#{language}" &nbsp;
+
+	.button_bar
+		a href="#" class="refresh" id="refresh_phrase_button" alt="Refresh" data-path="" 
+		a href="#" class="mass_edit" id="mass_edit_button" alt="Mass Edit"
