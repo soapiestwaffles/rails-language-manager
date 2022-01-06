@@ -8,7 +8,7 @@ This project was part of some internal tooling that I had built for a project an
 
 # Language Manager for Ruby on Rails
 
-A web-based language file editor for Ruby-On-Rails projects
+A web-based language file editor for Ruby-On-Rails projects circa 2013
 
 ## Running
 
